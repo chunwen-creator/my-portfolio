@@ -1,0 +1,38 @@
+title: My Portfolio
+description: A quiet space for things I create and collect.
+url: "https://chunwen-creator.github.io"
+baseurl: "/my-portfolio"
+
+markdown: kramdown
+theme: null
+plugins: []
+
+collections:
+  reflections:
+    output: true
+  writing:
+    output: true
+  fragments:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: reflections
+    values:
+      layout: article
+      category: Reflections
+
+  - scope:
+      path: ""
+      type: writing
+    values:
+      layout: article
+      category: Writing
+
+  - scope:
+      path: ""
+      type: fragments
+    values:
+      layout: article
+      category: Fragments
