@@ -1,4 +1,3 @@
-
 media:
   input: media
   output: /media
@@ -48,7 +47,7 @@ content:
       template: "{year}-{month}-{day}-{primary}.md"
       field: false
     view:
-      fields: [title, updatedAt, collection]
+      fields: [title, updatedAt, collection, featured, featuredOrder]
       primary: title
       sort: [updatedAt, title]
       default:
@@ -87,6 +86,11 @@ content:
       - name: featured
         label: Featured
         type: boolean
+
+      - name: featuredOrder
+        label: Featured Order
+        type: number
+        description: "Only used when Featured is enabled. Smaller numbers appear first."
 
       - name: collection
         label: Collection
@@ -108,6 +112,7 @@ content:
       - name: bodyEn
         label: English Content
         type: rich-text
+
   - name: reflections
     label: Reflections
     type: collection
@@ -117,7 +122,7 @@ content:
       template: "{year}-{month}-{day}-{primary}.md"
       field: false
     view:
-      fields: [title, updatedAt, featured]
+      fields: [title, updatedAt, featured, featuredOrder]
       primary: title
       sort: [updatedAt, title]
       default:
@@ -129,33 +134,47 @@ content:
         type: uuid
         options:
           editable: false
+
       - name: title
         label: Title
         type: string
         required: true
+
       - name: titleEn
         label: English Title
         type: string
+
       - name: updatedAt
         label: Last Updated
         type: date
         options:
           format: "yyyy-MM-dd"
+
       - name: summary
         label: Summary
         type: text
+
       - name: thumbnail
         label: Thumbnail
         type: image
+
       - name: featured
         label: Featured
         type: boolean
+
+      - name: featuredOrder
+        label: Featured Order
+        type: number
+        description: "Only used when Featured is enabled. Smaller numbers appear first."
+
       - name: body
         label: Chinese Content
         type: rich-text
+
       - name: bodyEn
         label: English Content
         type: rich-text
+
   - name: fragments
     label: Fragments
     type: collection
@@ -165,7 +184,7 @@ content:
       template: "{year}-{month}-{day}-{primary}.md"
       field: false
     view:
-      fields: [title, updatedAt, featured]
+      fields: [title, updatedAt, featured, featuredOrder]
       primary: title
       sort: [updatedAt, title]
       default:
@@ -177,30 +196,43 @@ content:
         type: uuid
         options:
           editable: false
+
       - name: title
         label: Title
         type: string
         required: true
+
       - name: titleEn
         label: English Title
         type: string
+
       - name: updatedAt
         label: Last Updated
         type: date
         options:
           format: "yyyy-MM-dd"
+
       - name: summary
         label: Summary
         type: text
+
       - name: thumbnail
         label: Thumbnail
         type: image
+
       - name: featured
         label: Featured
         type: boolean
+
+      - name: featuredOrder
+        label: Featured Order
+        type: number
+        description: "Only used when Featured is enabled. Smaller numbers appear first."
+
       - name: body
         label: Chinese Content
         type: rich-text
+
       - name: bodyEn
         label: English Content
         type: rich-text
