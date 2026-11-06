@@ -1,4 +1,3 @@
-
 ---
 ---
 
@@ -131,11 +130,7 @@
       </nav>
     </header>
 
-    {% assign all_articles = site.pages
-      | where_exp: "item", "item.path contains 'content/'"
-      | sort: "updatedAt"
-      | reverse
-    %}
+    {% assign all_articles = site.pages | where_exp: "item", "item.url contains '/content/'" | sort: "updatedAt" | reverse %}
 
     {% assign recent_articles = all_articles | slice: 0, 1 %}
 
@@ -161,10 +156,7 @@
       </ul>
     </section>
 
-    {% assign featured_articles = site.pages
-      | where_exp: "item", "item.path contains 'content/'"
-      | where_exp: "item", "item.featured == true"
-    %}
+    {% assign featured_articles = site.pages | where_exp: "item", "item.url contains '/content/'" | where_exp: "item", "item.featured == true" %}
 
     {% if featured_articles.size > 0 %}
       <section class="home-section" id="highlights-section">
