@@ -156,3 +156,51 @@ content:
       - name: bodyEn
         label: English Content
         type: rich-text
+  - name: fragments
+    label: Fragments
+    type: collection
+    path: content/fragments
+    format: yaml-frontmatter
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: false
+    view:
+      fields: [title, updatedAt, featured]
+      primary: title
+      sort: [updatedAt, title]
+      default:
+        sort: updatedAt
+        order: desc
+    fields:
+      - name: id
+        label: Internal ID
+        type: uuid
+        options:
+          editable: false
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: titleEn
+        label: English Title
+        type: string
+      - name: updatedAt
+        label: Last Updated
+        type: date
+        options:
+          format: "yyyy-MM-dd"
+      - name: summary
+        label: Summary
+        type: text
+      - name: thumbnail
+        label: Thumbnail
+        type: image
+      - name: featured
+        label: Featured
+        type: boolean
+      - name: body
+        label: Chinese Content
+        type: rich-text
+      - name: bodyEn
+        label: English Content
+        type: rich-text
