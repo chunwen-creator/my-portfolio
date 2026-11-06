@@ -1,0 +1,110 @@
+
+media:
+  input: media
+  output: /media
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, gif]
+
+content:
+  - name: collections
+    label: Writing Collections
+    type: collection
+    path: content/collections
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title]
+      primary: title
+      sort: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: id
+        label: Internal ID
+        type: uuid
+        options:
+          editable: false
+
+      - name: title
+        label: Collection Title
+        type: string
+        required: true
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: cover
+        label: Cover Image
+        type: image
+
+  - name: writing
+    label: Writing
+    type: collection
+    path: content/writing
+    format: yaml-frontmatter
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: false
+    view:
+      fields: [title, updatedAt, collection]
+      primary: title
+      sort: [updatedAt, title]
+      default:
+        sort: updatedAt
+        order: desc
+    fields:
+      - name: id
+        label: Internal ID
+        type: uuid
+        options:
+          editable: false
+
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: titleEn
+        label: English Title
+        type: string
+
+      - name: updatedAt
+        label: Last Updated
+        type: date
+        options:
+          format: "yyyy-MM-dd"
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: thumbnail
+        label: Thumbnail
+        type: image
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: collection
+        label: Collection
+        type: reference
+        options:
+          collection: collections
+          value: "{fields.id}"
+          label: "{primary}"
+
+      - name: chapterOrder
+        label: Chapter Order
+        type: number
+        description: "For collection chapters only. Leave empty for independent articles."
+
+      - name: body
+        label: Chinese Content
+        type: rich-text
+
+      - name: bodyEn
+        label: English Content
+        type: rich-text
