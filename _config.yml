@@ -4,35 +4,25 @@ url: "https://chunwen-creator.github.io"
 baseurl: "/my-portfolio"
 
 markdown: kramdown
-theme: null
-plugins: []
-
-collections:
-  reflections:
-    output: true
-  writing:
-    output: true
-  fragments:
-    output: true
 
 defaults:
   - scope:
-      path: ""
-      type: reflections
+      path: "content/reflections"
+      type: pages
     values:
       layout: article
       category: Reflections
 
   - scope:
-      path: ""
-      type: writing
+      path: "content/writing"
+      type: pages
     values:
       layout: article
       category: Writing
 
   - scope:
-      path: ""
-      type: fragments
+      path: "content/fragments"
+      type: pages
     values:
       layout: article
       category: Fragments
