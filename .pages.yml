@@ -1,3 +1,4 @@
+
 media:
   input: media
   output: /media
@@ -37,6 +38,33 @@ content:
       - name: cover
         label: Cover Image
         type: image
+
+  - name: tags
+    label: Tags
+    type: collection
+    path: content/tags
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    operations:
+      delete: false
+    view:
+      fields: [title]
+      primary: title
+      sort: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: id
+        label: Internal ID
+        type: uuid
+        options:
+          editable: false
+
+      - name: title
+        label: Tag Name
+        type: string
+        required: true
 
   - name: writing
     label: Writing
@@ -82,6 +110,15 @@ content:
       - name: thumbnail
         label: Thumbnail
         type: image
+
+      - name: tags
+        label: Tags
+        type: reference
+        options:
+          collection: tags
+          multiple: true
+          value: "{fields.id}"
+          label: "{primary}"
 
       - name: featured
         label: Featured
@@ -158,6 +195,15 @@ content:
         label: Thumbnail
         type: image
 
+      - name: tags
+        label: Tags
+        type: reference
+        options:
+          collection: tags
+          multiple: true
+          value: "{fields.id}"
+          label: "{primary}"
+
       - name: featured
         label: Featured
         type: boolean
@@ -219,6 +265,15 @@ content:
       - name: thumbnail
         label: Thumbnail
         type: image
+
+      - name: tags
+        label: Tags
+        type: reference
+        options:
+          collection: tags
+          multiple: true
+          value: "{fields.id}"
+          label: "{primary}"
 
       - name: featured
         label: Featured
