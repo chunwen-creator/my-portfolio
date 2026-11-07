@@ -45,8 +45,8 @@ content:
     path: content/tags
     format: yaml-frontmatter
     filename:
-      template: "{fields.title}.md"
-      field: create
+      template: "{fields.id}.md"
+      field: false
     operations:
       delete: false
     view:
