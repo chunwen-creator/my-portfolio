@@ -45,7 +45,7 @@ content:
     path: content/tags
     format: yaml-frontmatter
     filename:
-      template: "{primary}.md"
+      template: "{fields.title}.md"
       field: create
     operations:
       delete: false
