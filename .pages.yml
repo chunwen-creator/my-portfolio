@@ -44,7 +44,9 @@ content:
     type: collection
     path: content/tags
     format: yaml-frontmatter
-    filename: "{primary}.md"
+    filename:
+      template: "{primary}.md"
+      field: false
     operations:
       delete: false
     view:
